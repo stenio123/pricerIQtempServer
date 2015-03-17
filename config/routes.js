@@ -32,8 +32,32 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
+   '/': {
     view: 'homepage'
+  },
+  '/client/file': {
+    controller: 'ClientController',
+    action: 'indexfile'
+  },
+  '/client/upload': {
+    controller: 'ClientController',
+    action: 'upload'
+  },
+  '/item/file': {
+    controller: 'ItemController',
+    action: 'indexfile'
+  },
+  '/item/upload': {
+    controller: 'ItemController',
+    action: 'upload'
+  },
+  '/quote/file': {
+    controller: 'QuoteController',
+    action: 'indexfile'
+  },
+  '/quote/upload': {
+    controller: 'QuoteController',
+    action: 'upload'
   }
 
   /***************************************************************************
