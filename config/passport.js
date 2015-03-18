@@ -25,7 +25,7 @@ passport.use(new LocalStrategy({
     User.findOne({ email: email}).exec(function(err, user) {
           if (err) { return exec(err); }
             if (!user) { return exec(null, false, { message: 'Unknown user ' + email }); }
-            if (user.password != password) { return exec(null, false, { message: 'Invalid password' }); }
+            if (!User.comparePassword(password)) { return exec(null, false, { message: 'Invalid password' }); }
             return exec(null, user);
         });
     }
