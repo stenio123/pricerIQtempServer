@@ -26,7 +26,45 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': 'flash',
+
+   user: {
+    'new': "flash",
+    'create': "flash",
+    'subscribe': "flash",
+    'show': "isCurrentUser",
+    'edit': "isCurrentUser",
+    'update': "isCurrentUser",
+    '*': "admin"
+   },
+   item: {
+    'new': "isCurrentUser",
+    'create': "isCurrentUser",
+    'subscribe': "flash",
+    'show': "isCurrentUser",
+    'edit': "isCurrentUser",
+    'update': "isCurrentUser",
+    '*': "admin"
+   },
+   quote: {
+    'new': "isCurrentUser",
+    'create': "isCurrentUser",
+    'subscribe': "flash",
+    'show': "isCurrentUser",
+    'edit': "isCurrentUser",
+    'update': "isCurrentUser",
+    '*': "admin"
+   },
+   client: {
+    'new': "isCurrentUser",
+    'create': "isCurrentUser",
+    'subscribe': "flash",
+    'show': "isCurrentUser",
+    'edit': "isCurrentUser",
+    'update': "isCurrentUser",
+    '*': "admin"
+   }
+
 
   /***************************************************************************
   *                                                                          *

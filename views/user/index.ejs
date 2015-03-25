@@ -1,0 +1,42 @@
+<div class="container">
+  <h3>User Administration</h3>
+  <table class='table'>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>TItle</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% _.each(users, function(user) {  %>
+    <tr data-id="<%= user.id %>" data-model="user">
+      <% if (user.online) { %>
+        <td><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </td>
+      <% } else { %>
+        <td><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td> 
+       <% } %> 
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.title %></td>
+      <td><%= user.email %></td>
+      <% if (user.admin) { %>
+        <td><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></td>
+      <% } else { %>
+        <td><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span></td>
+      <% } %>  
+      <td><a href="/user/show/<%= user.id %>" class="btn btn-sm btn-primary">Show</a></td>  
+      <td><a href="/user/edit/<%= user.id %>" class="btn btn-sm btn-warning">Edit</a></td>  
+
+      <td><form action="/user/destroy/<%= user.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete"/>
+        <input type="submit" class="btn btn-sm btn-danger" value="Delete"/>
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      </form> </td> 
+    </tr>
+    <% }) %>
+  </table>
+</div>
